@@ -1,14 +1,3 @@
-# SENTINEL fraud graph on Neo4j
-
-Neo4j assignment, steps 1 to 5, using the SENTINEL fraud data from Project Work 4 and 5.
-
-## Files
-- `sentinel_neo4j.py`: the whole assignment as a script (steps 1 to 5)
-- `sentinel_neo4j.ipynb`: the same code as a notebook (click Run All)
-- `queries.cypher`: the constraints, the three fraud queries and the screenshot query, ready to paste into Neo4j Browser
-- `docker-compose.yml`: starts Neo4j locally on ports 7474 and 7687
-- `requirements.txt`, `.env.example`
-- `cluster_report.md`: written by the script on each run, with the facts for the step 5 explanation
 
 ## How to run
 
@@ -31,13 +20,6 @@ Use its `NEO4J_URI` (looks like `neo4j+s://xxxxxxxx.databases.neo4j.io`), `NEO4J
 ### 2. Run the script
 1. `pip install -r requirements.txt`
 2. Copy `.env.example` to `.env` and set `NEO4J_URI`, `NEO4J_USER`, `NEO4J_PASSWORD`.
-3. Choose where the data comes from:
-   - `SOURCE=files` (default): set `DATA_PATH` to `Sentinel project data.zip` (default `C:\Users\sudha\Downloads\Sentinel project data.zip`) or to the unzipped `sentinel_data\tables` folder. These are the same CSV files that `python ingest.py all` loads into Supabase.
-   - `SOURCE=supabase`: set `SUPABASE_URL` and `SUPABASE_KEY` (the ones from your `.env` in the Project Work 5 kit). The script reads the `transactions`, `labels`, `customers`, `devices` and `merchants` tables through the Supabase REST API, 1,000 rows per request.
-4. `python sentinel_neo4j.py`, or open the notebook and click Run All.
-
-Each run is safe to repeat: nothing is deleted and nothing is duplicated (see step 3). To start from an empty graph, run `MATCH (n) DETACH DELETE n` in Browser.
-
 ---
 
 ## Step 1: Connect from Python
